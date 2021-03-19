@@ -1,0 +1,13 @@
+[package]
+name = "syn_derive_layers"
+version = "0.1.0"
+authors = ["Kolsky <kolskytr@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+derive_macro = { path = "./derive_macro" }
+trait_layers = { path = "./trait_layers" }
+
+[workspace]
+members = ["derive_macro", "trait_layers"]
