@@ -16,8 +16,7 @@ impl<L: Layers> Iterator for LayersIter<L> {
     type Item = L;
 
     fn next(&mut self) -> Option<Self::Item> {
-        let num = self.layer.take()?.as_num().checked_add(1)?;
-        self.layer = L::try_from_num(num);
-        L::try_from_num(num)
+        let num = self.layer.as_ref()?.as_num().checked_add(1)?;
+        core::mem::replace(&mut self.layer, L::try_from_num(num))
     }
 }
